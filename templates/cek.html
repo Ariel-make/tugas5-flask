@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Cek Username{% endblock %}
+{% block content %}
+  <div class="card kartu mx-auto" style="max-width: 520px;">
+    <div class="card-body p-4 text-center">
+      <p class="text-muted mb-1">Hasil pengecekan</p>
+      <h2 class="mb-4">{{ username }}</h2>
+
+      {% if status == 'dilarang' %}
+        <div class="alert alert-danger">⛔ Username ini dilarang dipakai.</div>
+      {% elif status == 'tidak_valid' %}
+        <div class="alert alert-warning">⚠️ Format username tidak valid.</div>
+      {% elif status == 'dipakai' %}
+        <div class="alert alert-secondary">🔒 Username sudah dipakai.</div>
+      {% else %}
+        <div class="alert alert-success">✅ Username tersedia!</div>
+      {% endif %}
+
+      <form action="{{ url_for('cari') }}" method="get" class="input-group mb-3">
+        <input type="text" name="username" class="form-control" placeholder="Cek username lain" required>
+        <button class="btn btn-aksen" type="submit">Cek</button>
+      </form>
+      <a href="{{ url_for('beranda') }}" class="btn btn-outline-secondary btn-sm">Kembali</a>
+    </div>
+  </div>
+{% endblock %}

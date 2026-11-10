@@ -1,0 +1,12 @@
+:root { --aksen: #0d9488; --aksen-gelap: #115e59; --navy: #0f172a; }
+body { background: #f1f5f9; }
+.navbar-lab { background: var(--navy); border-bottom: 3px solid var(--aksen); }
+.navbar-lab .nav-link { color: #cbd5e1; }
+.navbar-lab .nav-link:hover, .navbar-lab .nav-link.active { color: #fff; }
+.hero { background: linear-gradient(135deg, var(--navy), var(--aksen-gelap)); color: #fff; border-radius: 1rem; }
+.btn-aksen { background: var(--aksen); border-color: var(--aksen); color: #fff; }
+.btn-aksen:hover { background: var(--aksen-gelap); border-color: var(--aksen-gelap); color: #fff; }
+.kartu { border: 0; border-radius: 1rem; box-shadow: 0 2px 12px rgba(15, 23, 42, .08); transition: transform .15s; }
+.kartu:hover { transform: translateY(-4px); }
+.ikon-besar { font-size: 2.5rem; }
+.footer-lab { background: var(--navy); color: #94a3b8; }

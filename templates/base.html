@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Inventaris Lab{% endblock %} | Lab Kampus</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-lg navbar-lab navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{{ url_for('beranda') }}">🔬 Inventaris Lab</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link {% if request.endpoint == 'beranda' %}active{% endif %}" href="{{ url_for('beranda') }}">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.endpoint in ('barang', 'detail_barang') %}active{% endif %}" href="{{ url_for('barang') }}">Barang</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.endpoint == 'tentang' %}active{% endif %}" href="{{ url_for('tentang') }}">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link {% if request.endpoint == 'kontak' %}active{% endif %}" href="{{ url_for('kontak') }}">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5 flex-grow-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer-lab text-center py-4">
+    <div>&copy; 2026 Inventaris Lab Kampus</div>
+    <small>
+      <a class="link-secondary" href="{{ url_for('tentang') }}">Tentang</a> &middot;
+      <a class="link-secondary" href="{{ url_for('kontak') }}">Kontak</a>
+    </small>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

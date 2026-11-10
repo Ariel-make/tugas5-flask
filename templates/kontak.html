@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Kontak{% endblock %}
+{% block content %}
+  <h1 class="mb-4">Kontak Laboran</h1>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card kartu h-100"><div class="card-body p-4">
+        <h5>👨‍🔧 Petugas</h5>
+        <p>Laboran: <a href="{{ url_for('user', username='laboran_budi') }}">laboran_budi</a><br>
+           Asisten lab: <a href="{{ url_for('user', username='aslab_rina') }}">aslab_rina</a></p>
+      </div></div>
+    </div>
+    <div class="col-md-6">
+      <div class="card kartu h-100"><div class="card-body p-4">
+        <h5>📍 Lokasi &amp; Jam</h5>
+        <p class="mb-0">Gedung Laboratorium, Lantai 2<br>Senin-Jumat, 08.00-16.00</p>
+      </div></div>
+    </div>
+  </div>
+{% endblock %}

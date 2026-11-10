@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}404{% endblock %}
+{% block content %}
+  <div class="text-center py-5">
+    <h1 class="display-1 fw-bold" style="color: var(--aksen);">404</h1>
+    <p class="lead">Halaman atau barang tidak ditemukan di sistem lab.</p>
+    <a href="{{ url_for('beranda') }}" class="btn btn-aksen">Ke Beranda</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Daftar Barang{% endblock %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-end mb-4">
+    <h1 class="mb-0">Daftar Barang Lab</h1>
+    <span class="text-muted">{{ daftar | length }} jenis barang</span>
+  </div>
+
+  <div class="row g-4">
+    {% for id, b in daftar.items() %}
+      <div class="col-md-6 col-lg-3">
+        <div class="card kartu h-100 text-center">
+          <div class="card-body">
+            <div class="ikon-besar">{{ b.ikon }}</div>
+            <h5 class="card-title mt-2">{{ b.nama | upper }}</h5>
+            <span class="badge text-bg-light mb-2">{{ b.kategori | capitalize }}</span><br>
+            {% if b.stok == 0 %}
+              <span class="badge bg-danger">Habis</span>
+            {% elif b.stok < 5 %}
+              <span class="badge bg-warning text-dark">Menipis: {{ b.stok }}</span>
+            {% else %}
+              <span class="badge bg-success">Stok: {{ b.stok }}</span>
+            {% endif %}
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a href="{{ url_for('detail_barang', id=id) }}" class="btn btn-aksen btn-sm">Detail</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p class="text-muted">Belum ada barang.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Beranda{% endblock %}
+{% block content %}
+  <section class="hero p-5 mb-5">
+    <h1 class="display-5 fw-bold">Sistem Inventaris Lab Kampus</h1>
+    <p class="lead">Pantau stok peralatan laboratorium dan cek ketersediaan username pengguna.</p>
+    <a href="{{ url_for('barang') }}" class="btn btn-light btn-lg me-2">Lihat Barang</a>
+    <a href="{{ url_for('kontak') }}" class="btn btn-outline-light btn-lg">Hubungi Laboran</a>
+  </section>
+
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="card kartu h-100">
+        <div class="card-body p-4">
+          <h4 class="card-title">🔎 Cek Username</h4>
+          <p class="text-muted">Ketik username untuk melihat apakah valid, tersedia, atau sudah dipakai.</p>
+          <form action="{{ url_for('cari') }}" method="get" class="input-group">
+            <input type="text" name="username" class="form-control" placeholder="contoh: dosen_sari" required>
+            <button class="btn btn-aksen" type="submit">Cek</button>
+          </form>
+          <small class="text-muted d-block mt-3">
+            Coba:
+            <a href="{{ url_for('cek', username='aslab_rina') }}">aslab_rina</a>,
+            <a href="{{ url_for('cek', username='admin') }}">admin</a>,
+            <a href="{{ url_for('cek', username='abc') }}">abc</a>
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card kartu h-100">
+        <div class="card-body p-4">
+          <h4 class="card-title">👤 Profil Pengguna</h4>
+          <p class="text-muted">Lihat profil pengguna terdaftar di sistem lab.</p>
+          <a href="{{ url_for('user', username='laboran_budi') }}" class="btn btn-outline-secondary">laboran_budi</a>
+          <a href="{{ url_for('user', username='aslab_rina') }}" class="btn btn-outline-secondary">aslab_rina</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

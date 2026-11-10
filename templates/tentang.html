@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Tentang{% endblock %}
+{% block content %}
+  <h1 class="mb-4">Tentang Lab</h1>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card kartu h-100"><div class="card-body p-4">
+        <h5>🏫 Laboratorium</h5>
+        <p class="mb-0">Menyediakan peralatan praktikum elektronika dan jaringan untuk mahasiswa, asisten lab, dan dosen.</p>
+      </div></div>
+    </div>
+    <div class="col-md-6">
+      <div class="card kartu h-100"><div class="card-body p-4">
+        <h5>📋 Aturan Username</h5>
+        <ul class="mb-0">
+          <li>Staf: <code>laboran_nama</code>, <code>aslab_nama</code>, <code>dosen_nama</code></li>
+          <li>Mahasiswa: NRP 10 digit angka</li>
+          <li><code>root</code>, <code>admin</code>, <code>laboran</code> dilarang</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+{% endblock %}
